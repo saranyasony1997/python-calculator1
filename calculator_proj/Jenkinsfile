@@ -1,0 +1,19 @@
+pipeline{
+ agent any
+ 
+ stages {
+   stage('Build Docker Image') {
+    steps {
+      sh 'sudo docker build -t my-python-app .'
+     }
+   }
+   stage('Run Tests') {
+    steps {
+     sh 'sudo docker run --rm my-python-app'
+   }
+  }
+ }
+} 
+
+
+
