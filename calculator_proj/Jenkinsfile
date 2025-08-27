@@ -4,7 +4,8 @@ pipeline {
   stages {
     stage('Build Docker Image') {
       steps {
-        sh 'docker build -t my-python-app -f calculator_proj/Dockerfile .'
+        // Build Docker image using calculator_proj as context (Dockerfile inside it)
+        sh 'docker build -t my-python-app calculator_proj/'
       }
     }
 
